@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Information</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-image: url('/Crop-Recommendation-System-Using-Machine-Learning-main/static/images/banana.jpeg');
+            /* Set the background image */
+            background-size: cover;
+            /* Cover the entire background */
+            background-position: center;
+            /* Center the background image */
+            background-repeat: no-repeat;
+            /* Prevent background image from repeating */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1px 0; /* Reduced padding */
+            text-align: center;
+            height: 90px; /* Reduced height */
+            width: 100%;
+            margin-bottom: 20px; /* Add margin-bottom */
+        }
+
+        .crop-container {
+            text-align: center;
+            flex-grow: 1;
+            position: relative;
+            margin-top: 20px;
+            /* Adjust margin to move the heading up */
+        }
+
+        .crop-image {
+            display: none;
+            /* Hide the image when using it as a background */
+        }
+
+        .new-heading {
+            font-family: "Open Sans", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            /* Bold font weight */
+            font-size: 36px; /* Smaller font size */
+            color: #fff; /* White font color */
+            margin-bottom: 20px;
+            /* Add some space below the crop name */
+            padding: 10px 20px;
+            /* Add padding to create a highlighted effect */
+            background-color: transparent; /* Transparent background color */
+            border-radius: 0; /* No border radius */
+            box-shadow: none; /* No shadow */
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            background-color: #FFFFFF;
+            /* White background for boxes */
+            padding: 20px;
+            /* Add padding to the container */
+            border-radius: 10px;
+            /* Add rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Add subtle shadow */
+        }
+
+        .box {
+            width: 30%;
+            padding: 20px;
+            background-color: #E0E0E0;
+            /* Light grey background for boxes */
+            border-radius: 8px;
+            /* Add rounded corners */
+            margin: 0 10px;
+            /* Add margin between boxes */
+            border: 2px solid #000;
+            /* Add solid black border */
+        }
+
+        .box p {
+            margin-bottom: 10px;
+            /* Add space between paragraphs */
+        }
+
+        /* Style for language button */
+        .language-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: #FFD700;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for language options */
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            padding: 5px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-options button {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .language-options button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="new-heading" id="heading">BANANA</h1>
+    </header>
+
+    <div class="crop-container">
+        <!-- <img class="crop-image" src="/Crop-Recommendation-System-Using-Machine-Learning-main/static/images/banana.jpeg" alt="Crop Image"> -->
+    </div>
+
+    <div class="box-container">
+        <div class="box">
+            <p>Banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous
+                flowering plants in the genus Musa.</p>
+            <p>In some countries, bananas used for cooking may be called "plantains", distinguishing them from dessert
+                bananas.</p>
+        </div>
+
+        <div class="box">
+            <p>Bananas are a good source of several vitamins and minerals, especially potassium, vitamin B6, and vitamin
+                C.</p>
+            <p>The high fiber content of bananas may help improve digestion and promote heart health.</p>
+        </div>
+
+        <div class="box">
+            <p>Bananas are grown in at least 107 countries and are one of the most popular fruits worldwide.</p>
+            <p>The vast majority of bananas are consumed fresh, while a small percentage is used for producing cooking
+                bananas and banana-based products.</p>
+        </div>
+    </div>
+
+    <!-- Language button and options -->
+    <button class="language-button" onclick="toggleLanguages()">Languages</button>
+    <div class="language-options" id="languageOptions">
+        <button onclick="changeLanguage
+('english')">English</button>
+        <button onclick="changeLanguage('telugu')">Telugu</button>
+        <button onclick="changeLanguage('tamil')">Tamil</button>
+        <button onclick="changeLanguage('sanskrit')">Sanskrit</button>
+        <button onclick="changeLanguage('hindi')">Hindi</button>
+        <button onclick="changeLanguage('kannada')">Kannada</button>
+        <button onclick="changeLanguage('malayalam')">Malayalam</button>
+        <button onclick="changeLanguage('marathi')">Marathi</button>
+    </div>
+
+    <script>
+        function toggleLanguages() {
+            var options = document.getElementById('languageOptions');
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function changeLanguage(language) {
+            var heading = document.getElementById('heading');
+            if (language === 'english') {
+                heading.textContent = 'BANANA';
+            } else if (language === 'telugu') {
+                heading.textContent = 'అరటిపండు';
+            } else if (language === 'tamil') {
+                heading.textContent = 'வாழை';
+            } else if (language === 'sanskrit') {
+                heading.textContent = 'कदली';
+            } else if (language === 'hindi') {
+                heading.textContent = 'केला';
+            } else if (language === 'kannada') {
+                heading.textContent = 'ಬಾಳೆಹಣ್ಣು';
+            } else if (language === 'malayalam') {
+                heading.textContent = 'വാഴപ്പഴം';
+            } else if (language === 'marathi') {
+                heading.textContent = 'केळी';
+            }
+        }
+    </script>
+</body>
+
+</html>
